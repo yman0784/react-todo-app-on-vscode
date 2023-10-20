@@ -1,5 +1,4 @@
 import { useState } from "react";
-import logo from "./logo.svg";
 import "./styles.css";
 import InputTodos from "./components/InputTodos";
 import { IncompleteTodos } from "./components/IncompleteTodos";
@@ -46,7 +45,9 @@ export const App = () => {
         inputText={inputText}
         onChange={onChangeTodoText}
         onClick={onClickAdd}
+        disabled={incompleteTodos.length >= 5}
       />
+      {incompleteTodos.length >= 5 && <p>登録は5つまで、消化して</p>}
       <IncompleteTodos
         todos={incompleteTodos}
         onClickComplete={onClickComplete}
